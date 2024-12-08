@@ -4,7 +4,7 @@ This repository contains the code for a Game Explorer Website, developed as part
 ## Features
 
 Responsive and user-friendly interface.
-Built using HTML, CSS, and PHP.
+Built using HTML, CSS, JAVASCRIPT and PHP.
 Backend functionality to manage and display game details.
 Project Purpose
 This project aims to strengthen our understanding of web development concepts, focusing on frontend and backend integration, while gaining hands-on experience in building a functional website.
