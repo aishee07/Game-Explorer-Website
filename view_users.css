@@ -1,0 +1,115 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the body with background image */
+body {
+    background-image: url("images/user.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+header a.home-button {
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+
+header a.home-button:hover {
+    text-decoration: underline;
+}
+
+/* Game List Section */
+.game-list {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    max-width: 80%;
+    text-align: center;
+}
+
+.game-list h2 {
+    color: black;
+    margin-bottom: 20px;
+}
+
+/* Table Styling */
+.table-container {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+table th,
+table td {
+    border: 1px solid #000000;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: rgba(88, 19, 104, 0.8);
+    color: white;
+}
+
+/* Delete Button */
+.delete-button {
+    padding: 8px 12px;
+    background-color: #e100b1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #e03e3e;
+}
+
+/* Message Section */
+.message {
+    padding: 10px;
+    color: rgb(255, 0, 0);
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    border: 1px solid #ffbdbd;
+    border-radius: 5px;
+    background-color: #ffaeae;
+}
+
+h2{
+    text-align: center;
+}

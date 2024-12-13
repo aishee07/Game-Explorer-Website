@@ -1,0 +1,218 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Global Styles */
+body {
+    background-image: url("images/horror.jpg"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1b182b;
+    color: #333;
+}
+
+/* Menu Bar */
+.menu-bar {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+}
+
+.menu-bar img {
+    height: 50px;
+    margin-right: auto;
+}
+
+.menu-bar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-bar ul li {
+    margin: 0 10px;
+}
+
+.menu-bar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-top: 40px;
+}
+
+/* Horizontal Line */
+hr {
+    margin: 10px auto;
+    width: 80%;
+    border: 1px solid #ddd;
+}
+
+/* Container */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Card */
+.card {
+    perspective: 1000px;
+    background-color: transparent;
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+/* Inner Card (for flip effect) */
+.card .inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+/* Hover Effect for Card */
+.card:hover .inner {
+    transform: rotateY(180deg);
+}
+
+/* Front of Card */
+.card .front,
+.card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(50, 114, 163, 0.597);
+}
+
+/* Front Card Content */
+.card .front {
+    background-color: #378abe4c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card .front img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+}
+
+.card .front .name {
+    font-weight: bold;
+    font-size: 18px;
+    color: #ffffff;
+    margin: 10px 0;
+}
+
+/* Back of Card */
+.card .back {
+    background-color: #378abe4c;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.card .back .about {
+    font-family: 'Nosifer', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    margin: 20px 0;
+}
+
+
+/* Star Rating */
+.stars {
+    font-size: 20px;
+    color: #FFD700;
+}
+
+/* Download Button Styling */
+.box-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);  
+    color: var(--text-color);  
+    padding: 15px;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 50%;  
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    width: 60px;  
+    height: 60px;  
+}
+
+/* Download Button Icon */
+.box-btn .bx {
+    font-size: 24px;  
+    color: var(--text-color);  
+    transition: background-color 0.3s ease;
+}
+
+/* Hover Effect for Button */
+.box-btn:hover {
+    background-color: var(--light-color);  
+    transform: scale(1.1);  
+}
+
+/* Hover Effect for Icon */
+.box-btn .bx:hover {
+    background-color: var(--dark-color);  
+    color: var(--text-color);  
+}
+
+/* Active State for Button (when clicked) */
+.box-btn:active {
+    background-color: var(--dark-color);  
+    transform: translateY(2px);  
+}
+
+/* Style for header */
+header {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    width: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end; 
+    background: none;
+}
+
+header a.home-button {
+    text-decoration: none;
+    font-size: 16px;
+    color: white; 
+    font-weight: bold; 
+}
+
+header a.home-button:hover {
+    text-decoration: underline; 
+}

@@ -1,0 +1,108 @@
+/* General Styling */
+body {
+    background-image: url("images/aboutus.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #000000;
+    line-height: 1.6;
+}
+  
+/* About Us Section */
+.about-us {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff88;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+  
+.about-us h1 {
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center;
+}
+  
+.about-us h2 {
+    font-size: 1.8rem;
+    color: #ac007e;
+    margin-top: 20px;
+}
+  
+.about-us p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+  
+.about-us ul {
+    margin: 15px 0;
+    padding: 0 20px;
+}
+  
+.about-us li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Social Icons Section */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 15px; 
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+    transition: color 0.3s ease;
+}
+
+.social-icons i {
+    font-size: 24px; 
+}
+
+/* Hover effects*/
+
+.social-icons a[href*="facebook"]:hover {
+    color: #1877F2; 
+}
+
+.social-icons a[href*="twitter"]:hover {
+    color: #36b2ff; 
+}
+
+.social-icons a[href*="instagram"]:hover {
+    color: #ff00b3; 
+}
+
+header {
+    position: fixed;
+    top: 10px;
+    right: 30px;
+    width: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end; 
+    background: none;
+  }
+  
+  header a.home-button {
+    text-decoration: none;
+    font-size: 16px;
+    color: white; 
+    font-weight: bold; 
+  }
+  
+  header a.home-button:hover {
+    text-decoration: underline; 
+  }
