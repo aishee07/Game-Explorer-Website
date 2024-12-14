@@ -1,0 +1,65 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    background: url('images/sitemap.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+  }
+  
+  .background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .overlay {
+    background: rgba(0, 0, 0, 0.589);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 900px;
+    width: 90%;
+  }
+  
+  header h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  }
+  
+  .sitemap {
+    margin-top: 20px;
+  }
+  
+  .sitemap ul {
+    list-style: none;
+    padding-left: 20px;
+  }
+  
+  .sitemap ul li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .sitemap ul li ul {
+    margin-top: 5px;
+    padding-left: 20px;
+  }
+  
+  .sitemap ul li a {
+    color: #adfad1;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .sitemap ul li a:hover {
+    color: #2fff36;
+  }
+  
