@@ -34,25 +34,23 @@ try {
 $game_submission_successful = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['game_name'], $_POST['game_category'], $_POST['game_description'], $_POST['game_rating'], $_POST['game_image_url'], $_POST['game_download_url'])) {
+    if (isset($_POST['game_name'], $_POST['game_category'], $_POST['game_description'], $_POST['game_rating'], $_POST['game_image_url'])) {
         // Extract the form data
         $game_name = $_POST['game_name'];
         $game_category = $_POST['game_category'];
         $game_description = $_POST['game_description'];
         $game_rating = floatval($_POST['game_rating']);
         $game_image_url = $_POST['game_image_url'];
-        $game_download_url = $_POST['game_download_url'];
 
         try {
             // Insert game into new_games table
-            $sql_new_game = "INSERT INTO new_games (g_name, g_category, g_description, g_rating, g_image_url, g_download_url) VALUES (:name, :category, :description, :rating, :image_url, :download_url)";
+            $sql_new_game = "INSERT INTO new_games (g_name, g_category, g_description, g_rating, g_image_url) VALUES (:name, :category, :description, :rating, :image_url)";
             $stmt_new_game = $pdo->prepare($sql_new_game);
             $stmt_new_game->bindParam(':name', $game_name);
             $stmt_new_game->bindParam(':category', $game_category);
             $stmt_new_game->bindParam(':description', $game_description);
             $stmt_new_game->bindParam(':rating', $game_rating);
             $stmt_new_game->bindParam(':image_url', $game_image_url);
-            $stmt_new_game->bindParam(':download_url', $game_download_url);
 
             if ($stmt_new_game->execute()) {
                 $game_submission_successful = true;
@@ -60,14 +58,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Check if rating is greater than 7
                 if ($game_rating > 7) {
                     // Insert into trending_games as well
-                    $sql_trending_game = "INSERT INTO trending_games (name, category, description, rating, image_url, download_url) VALUES (:name, :category, :description, :rating, :image_url, :download_url)";
+                    $sql_trending_game = "INSERT INTO trending_games (name, category, description, rating, image_url) VALUES (:name, :category, :description, :rating, :image_url)";
                     $stmt_trending_game = $pdo->prepare($sql_trending_game);
                     $stmt_trending_game->bindParam(':name', $game_name);
                     $stmt_trending_game->bindParam(':category', $game_category);
                     $stmt_trending_game->bindParam(':description', $game_description);
                     $stmt_trending_game->bindParam(':rating', $game_rating);
                     $stmt_trending_game->bindParam(':image_url', $game_image_url);
-                    $stmt_trending_game->bindParam(':download_url', $game_download_url);
+                   
 
                     $stmt_trending_game->execute();
                 }
@@ -116,8 +114,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="game_image_url">Image URL:</label>
             <input type="text" name="game_image_url" id="game_image_url" required><br>
 
-            <label for="game_download_url">Download URL:</label>
-            <input type="text" name="game_download_url" id="game_download_url" required><br>
 
             <button type="submit">Submit Game</button>
         </form>

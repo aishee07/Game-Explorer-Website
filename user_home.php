@@ -92,10 +92,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
   <!-- Load JS scripts -->
   <script src="Swiper/swiper-bundle.min.js"></script>
-  <script src="trending.js"></script>
+  <script src="user_trending.js"></script>
   <script>
     const CURRENT_USER_ID = <?php echo json_encode($_SESSION['user_id'] ?? null); ?>;
   </script>
-  <script src="new.js"></script>
+  <script src="user_new.js"></script>
 </body>
 </html>

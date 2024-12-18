@@ -35,6 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                         ${generateStars(game.g_rating || 0)}
                                         <span>${game.g_rating || 'N/A'}/10</span>
                                     </div>
+                                    <a href="pay.html" class="box-btn">
+                                        <i class='bx bx-down-arrow-alt'>Buy now</i>
+                                    </a>
                                 </div>
                             </div>
                         </div>

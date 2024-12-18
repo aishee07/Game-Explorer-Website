@@ -40,7 +40,7 @@
         }
 
         #myMegaContainer::before{
-            background: url(ghostrunner.jpg);
+            background: url(images/ghostrunner.jpg);
             filter: brightness(50%);
             background-size: 100% 100%;
             background-repeat: no-repeat;
@@ -107,7 +107,7 @@
     <script>
         function fadeOutTransition() {
             setTimeout(function () {
-                window.location.href = 'index.html';
+                window.location.href = 'user_home.php';
                 window.clearTimeout(tID);
             }, 3000)
             document.getElementById("myMegaContainer").style.opacity = "0%";
