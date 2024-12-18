@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        html {
+            height: 100%;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            height: 100%;
+            background-image: url("https://media.istockphoto.com/id/944880340/photo/chaotic-black-low-poly-surface-abstract-3d-render.jpg?b=1&s=170667a&w=0&k=20&c=_zTTb5QQqP9yjC1WYh1pzolYb70MEE11rVm23rxBDgo=");
+        }
+
+        #upper {
+            height: 10%;
+            width: 100%;
+            margin-bottom: 1%;
+        }
+
+        #lower {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80%;
+            width: 100%;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            width: 70%;
+            border: 2px solid yellow;
+            border-radius: 5px;
+            box-shadow: 10px 10px 5px 5px rgb(48, 48, 46);
+        }
+
+        #left {
+            height: 100%;
+            width: 40%;
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+
+        #right {
+            height: 100%;
+            width: 60%;
+            background-color: rgb(37, 34, 34);
+            color: white;
+            overflow-y: auto;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .myFormFields {
+            text-align: center;
+        }
+
+        .myFormFields input {
+            color: white;
+            opacity: 50%;
+            width: 80%;
+            background: none;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid white;
+        }
+
+        p {
+            opacity: 50%;
+        }
+
+        input {
+            text-align: center;
+        }
+
+        .mySelectOption {
+            background-color: rgb(154, 154, 253);
+        }
+
+        select {
+            color: white;
+            text-align: center;
+            background: none;
+            opacity: 50%;
+        }
+
+        select:hover {
+            color: rgb(255, 172, 47);
+            cursor: pointer;
+            border-color: #dd366e;
+            opacity: 100%;
+        }
+
+        select:hover~p {
+            color: aqua;
+            font-size: large;
+            opacity: 100%;
+        }
+
+        option {
+            background-color: black;
+        }
+
+        input:hover {
+            opacity: 100%;
+            border-color: #dd366e;
+        }
+
+        input:hover~p {
+            font-size: large;
+            opacity: 100%;
+            color: aqua;
+        }
+
+        input[type=text]:focus,
+        input[type=email]:focus,
+        input[type=password]:focus,
+        input[type=number]:focus {
+            color: rgb(255, 172, 47);
+            font-size: large;
+            opacity: 100%;
+            border-color: #dd366e;
+        }
+
+        input:focus~p,
+        select:focus~p {
+            font-size: large;
+            opacity: 100%;
+            color: aqua;
+        }
+
+        #myPaypal {
+            display: none;
+        }
+
+        #myCreditTabButton {
+            opacity: 100%;
+        }
+
+        #myButtonBox {
+            height: 5%;
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            left: 10%;
+        }
+
+        #myResetButton,
+        #mySubmitButton {
+            width: 50%;
+        }
+
+        .myTabButtons {
+            opacity: 50%;
+            width: 30%;
+            background: linear-gradient(yellow, orange);
+        }
+
+        .myTabButtons:hover {
+            cursor: pointer;
+            opacity: 100%;
+            background: linear-gradient(orange, yellow);
+        }
+
+        #myInvalidDevice {
+            display: none;
+            text-align: center;
+        }
+
+        @media only screen and (max-width: 700px) {
+
+            input[type=reset],
+            input[type=submit] {
+                margin: 0% 0%;
+            }
+
+            #right {
+                width: 100%;
+            }
+
+            #left {
+                width: 0%;
+            }
+        }
+
+        @media only screen and (max-width: 450px) {
+            #container {
+                width: 95%;
+            }
+
+            #myCreditTabButton {
+                float: left;
+                margin-left: 10%;
+                width: 40%;
+            }
+
+            #myPaypalTabButton {
+                float: right;
+                margin-right: 10%;
+                width: 40%;
+            }
+        }
+
+        @media only screen and (max-height: 400px) {
+            #container {
+                display: none;
+            }
+
+            #navbar {
+                display: none;
+            }
+
+            #myInvalidDevice {
+                display: block;
+            }
+        }
+
+        @media only screen and (max-width: 300px) {
+            #container {
+                display: none;
+            }
+
+            #navbar {
+                display: none;
+            }
+
+            #myInvalidDevice {
+                display: block;
+            }
+        }
+
+        input[type=reset] {
+            opacity: 80%;
+            margin: 0% 30%;
+            background: none;
+            color: white;
+            border-radius: 20px;
+            border: 2px solid black;
+            padding: 2% 10%;
+            -webkit-transition: background-color 0.5s linear, border-radius 0.5s linear;
+            -moz-transition: background-color 0.5s linear, border-radius 0.5s linear;
+            -o-transition: background-color 0.5s linear, border-radius 0.5s linear;
+            -ms-transition: background-color 0.5s linear, border-radius 0.5s linear;
+            transition: background-color 0.5s linear, border-radius 0.5s linear;
+        }
+
+        input[type=submit] {
+            float: right;
+            opacity: 80%;
+            margin: 0% 30%;
+            background: none;
+            color: white;
+            border-radius: 20px;
+            border: 2px solid black;
+            padding: 2% 10%;
+            -webkit-transition: background-color 0.5s linear, border-radius 0.5s linear;
+            -moz-transition: background-color 0.5s linear, border-radius 0.5s linear;
+            -o-transition: background-color 0.5s linear, border-radius 0.5s linear;
+            -ms-transition: background-color 0.5s linear, border-radius 0.5s linear;
+            transition: background-color 0.5s linear, border-radius 0.5s linear;
+        }
+
+        input[type=submit]:hover,
+        input[type=reset]:hover {
+            cursor: pointer;
+            border: 2px solid black;
+            border-radius: 10px;
+            background: white;
+            color: black;
+            font-weight: bold;
+        }
+
+        input[type=text]:focus~p,
+        input[type=email]:focus~p,
+        input[type=password]:focus~p {
+            font-size: larger;
+        }
+
+        form {
+            position: relative;
+        }
+
+        hr {
+            color: #b90358;
+        }
+
+        #right {
+            box-shadow: inset 0 0 100px rgba(245, 207, 38, 0.5);
+        }
+
+        #myPayMeth {
+            opacity: 100%;
+        }
+
+        #myTabButtonBox {
+            margin-top: 5%;
+        }
+
+        #myPaypalLoginSuccess {
+            opacity: 100%;
+            font-weight: bolder;
+            color: black;
+            background: rgb(154, 247, 131);
+            border-radius: 5px;
+            padding: 0% 2%;
+            visibility: hidden;
+
+        }
+
+        #myPaypalLoginButton {
+            background: none;
+            border: none;
+            background: #0070ba;
+            border-radius: 20px;
+            padding: 0.5% 2%;
+            opacity: 80%;
+        }
+
+        #myPaypalLoginButton:hover {
+            cursor: pointer;
+            opacity: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="upper">
+        <h1><font color="white">ASTAR</font><font color=#fa5353>GAMES ™</font></h1>
+        <div id="navbar">
+            <span>
+                <ul class="menu-bar">
+                    <li><a href="index.html" style="text-decoration:none; color:white">HomePage</a></li>
+		    <li><a href="category.html" style="text-decoration:none; color:white">Categories</a></li>
+		    <li><a href="aboutus.html" style="text-decoration:none; color:white">About Us</a></li>
+	            <li><a href="login.php" style="text-decoration:none; color:white">Login</a></li>
+                </ul>
+            </span>
+        </div>
+    </div>
+    <br>
+    <div id="lower">
+        <div id="myInvalidDevice">
+            <h1>Unsupported device!</h1>
+        </div>
+        <div id="container">
+            <div id="left">
+                <img src="assassin.jpg">
+            </div>
+            <div id="right">
+                <h2>Payment Form</h2>
+                <div id="myForm">
+                    <form action="paid.html" onsubmit="return validate()">
+                        <div class="myFormFields">
+                            <input type="email" name="myEmail" id="myEmail" class="myInputBox" autocomplete="off">
+                            <p>User Email</p>
+                        </div>
+                        <div class="myFormFields">
+                            <input type="password" name="myPassword" id="myPassword" class="myInputBox"
+                                autocomplete="off">
+                            <p>User Password</p>
+                        </div>
+                        <hr>
+                        <div class="myFormFields">
+                            <div id="myTabButtonBox">
+                                <button type="button" class="myTabButtons" id="myCreditTabButton"
+                                    onclick="creditTab()">Credit Card</button>
+                                <button type="button" class="myTabButtons" id="myPaypalTabButton"
+                                    onclick="paypalTab()">PayPal</button>
+                            </div>
+                            <div id="myCreditCard" class="myTabs">
+                                <br><br>
+                                <div class="myCreditDetails">
+                                    <input type="text" name="myCreditName" id="myCreditName" autocomplete="off">
+                                    <p>Name On Card</p>
+                                </div>
+                                <div class="myCreditDetails">
+                                    <input type="number" name="myCreditNumber" id="myCreditNumber"
+                                        placeholder="xxxx xxxx xxxx xxxx" autocomplete="off">
+                                    <p>Card Number</p>
+                                </div>
+                                <div class="myCreditDetails">
+                                    <select name="myCreditMonth" id="myCreditMonth" autocomplete="off">
+                                        <option value="none" disabled hidden selected>MM</option>
+                                        <option value="01">JAN</option>
+                                        <option value="02">FEB</option>
+                                        <option value="03">MAR</option>
+                                        <option value="04">APRIL</option>
+                                        <option value="05">MAY</option>
+                                        <option value="06">JUNE</option>
+                                        <option value="07">JULY</option>
+                                        <option value="08">AUG</option>
+                                        <option value="09">SEPT</option>
+                                        <option value="10">OCT</option>
+                                        <option value="11">NOV</option>
+                                        <option value="12">DEC</option>
+                                    </select>
+                                    <select name="myCreditYear" id="myCreditYear" autocomplete="off">
+                                        <option value="none" disabled hidden selected>YYYY</option>
+                                        <option value="23">2023</option>
+                                        <option value="24">2024</option>
+                                        <option value="25">2025</option>
+                                    </select>
+                                    <p>Expiry Date</p>
+                                </div>
+                                <div class="myCreditDetails">
+                                    <input type="number" name="myCreditCVV" id="myCreditCVV" placeholder="123" autocomplete="off">
+                                    <p>CVV</p>
+                                </div>
+                            </div>
+                            <div id="myPaypal" class="myTabs">
+                                <br><br>
+                                <div class="myFormFields">
+                                    <input type="text" name="myPaypalEmail" id="myPaypalEmail" class="myInputBox"
+                                        autocomplete="off">
+                                    <p>PayPal Email</p>
+                                </div>
+                                <div class="myFormFields">
+                                    <input type="password" name="myPaypalPassword" id="myPaypalPassword"
+                                        class="myInputBox" autocomplete="off">
+                                    <p>PayPal Password</p>
+                                </div>
+                                <div id="myPaypalLoginButtonBox">
+                                    <button type="button" id="myPaypalLoginButton" onclick="checkPaypalLogin()">Login
+                                        with PayPal</button>
+                                </div>
+                                <br>
+                                <div id="myPaypalLoginSuccessBox">
+                                    <span id="myPaypalLoginSuccess">PayPal Login Success! Click on 'Pay Now' to
+                                        confirm!</span>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <div id="myButtonBox">
+                            <div id="myResetButton">
+                                <input type="reset" value="Clear">
+                            </div>
+                            <div id="mySubmitButton">
+                                <input type="submit" value="Pay Now">
+                            </div>
+                        </div>
+                    </form>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validate() {
+            var ret1 = validateUserEmail();
+            var ret2 = validateUserPassword();
+            var aa = document.getElementById("myCreditCard");
+            var bb = document.getElementById("myPaypal");
+            var ret;
+            if (aa.style.display != "none") {
+                var ret3 = validateCreditName()
+                var ret4 = validateCreditNumber();
+                var ret5 = validateCreditExpiry();
+                var ret6 = validateCreditCVV();
+                ret = ret1 && ret2 && ret3 && ret4 && ret5 && ret6;
+                return ret;
+            }
+            if (bb.style.display != "none") {
+                var ret7 = checkPaypalLogin();
+                ret = ret1 && ret2 && ret7;
+                return ret;
+            }
+        }
+        function validateUserEmail() {
+            var email = document.getElementById("myEmail");
+            if (email.value.length == 0) {
+                alert("User Email can't be blank!");
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        function validateUserPassword() {
+            var password = document.getElementById("myPassword");
+            if (password.value.length > 10 || password.value.length == 0) {
+                if (password.value.length > 10) {
+                    alert("User Password must be of 10 digits or less!");
+                }
+                if (password.value.length == 0) {
+                    alert("User Password can't be blank!");
+                }
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        var x = document.getElementById("myCreditCard")
+        var y = document.getElementById("myPaypal")
+        var a = document.getElementById("myCreditTabButton");
+        var b = document.getElementById("myPaypalTabButton");
+        function creditTab() {
+            x.style.display = "block";
+            if (y.style.display != "none") {
+                y.style.display = "none";
+            }
+            a.style.opacity = '100%';
+            b.style.opacity = '50%';
+        }
+        function paypalTab() {
+            y.style.display = "block";
+            if (x.style.display != "none") {
+                x.style.display = "none";
+            }
+            a.style.opacity = '50%';
+            b.style.opacity = '100%';
+        }
+        function invalidDevice() {
+            var height1 = window.matchMedia("(min-height: 650px)");
+            var width1 = window.matchMedia("(min-height: 400px)");
+            if (height1.matches || width1.matches) {
+                alert("Device not supported!");
+            }
+        }
+        function validateCreditName() {
+            var credname = document.getElementById("myCreditName");
+            if (credname.value.length == 0) {
+                alert("Name On Credit Card can't be blank!");
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        function validateCreditNumber() {
+            var crednum = document.getElementById("myCreditNumber");
+            if (crednum.value.length == 16) {
+                return true;
+            }
+            else {
+                alert("Credit Card Number must be of 16 digits!");
+                return false;
+            }
+        }
+        function validateCreditExpiry() {
+            var credmonth = document.getElementById("myCreditMonth");
+            var credyear = document.getElementById("myCreditYear");
+            if (credmonth.value == "none" || credyear.value == "none") {
+                if (credmonth.value == "none") {
+                    alert("Credit Card Expiry Month can't be blank!");
+                }
+                if (credyear.value == "none") {
+                    alert("Credit Card Expiry Year can't be blank!");
+                }
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        function validateCreditCVV() {
+            var credcvv = document.getElementById("myCreditCVV");
+            if (credcvv.value.length == 3) {
+                return true;
+            }
+            else {
+                alert("Credit Card CVV must be of 3 digits!");
+                return false;
+            }
+        }
+        function checkPaypalLogin() {
+            var payemail = document.getElementById("myPaypalEmail");
+            var paypass = document.getElementById("myPaypalPassword");
+            if (payemail.value.length == 0 || paypass.value.length == 0 || (payemail.value.includes("@") == false || payemail.value.endsWith("@") || payemail.value.startsWith("@"))) {
+                if (payemail.value.length == 0 || (payemail.value.includes("@") == false || payemail.value.endsWith("@") || payemail.value.startsWith("@"))) {
+                    if (payemail.value.length == 0) {
+                        alert("PayPal Email can't be blank!");
+                    }
+                    else if (payemail.value.includes("@") == false || payemail.value.endsWith("@") || payemail.value.startsWith("@")) {
+                        alert("Invalid PayPal Email!");
+                    }
+                }
+                if (paypass.value.length == 0) {
+                    alert("PayPal Password can't be blank!");
+                }
+                return false;
+            }
+            else {
+                var paylogin = document.getElementById("myPaypalLoginSuccess");
+                paylogin.style.visibility = "visible";
+                return true;
+            }
+        }
+    </script>
+</body>
+
+</html>
